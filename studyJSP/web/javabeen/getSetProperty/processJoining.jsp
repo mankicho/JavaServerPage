@@ -10,7 +10,7 @@
     request.setCharacterEncoding("UTF-8");
 %>
 <jsp:useBean id="memberInfo" class="javabeen.member.MemberInfo"/>
-<!-- 내가 폼에서 입력한 값이 속성값이된다 -->
+<!-- 내가 폼에서 입력한 값이 속성값09이된다 -->
 <jsp:setProperty name="memberInfo" property="*"/>
 <jsp:setProperty name="memberInfo" property="password" value="<%=memberInfo.getId()%>"/>
 

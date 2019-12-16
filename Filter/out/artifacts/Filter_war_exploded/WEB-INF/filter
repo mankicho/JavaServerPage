@@ -1,0 +1,17 @@
+필터를 구현하는데 있어서 핵심은 3개의 타입.
+1. Filter Interface => client와 최종 자원 사이에 위치하는 필터를 나타내는 객체가 구현해야하는 인터페이스
+2. ServletRequestWrapper class => 필터가 요청을 변경한 결과를 저장하는 래퍼클래스.
+3. ServletResponseWrapper class => 필터가 응답을 변경하기위해 사용하는 래퍼클래스.
+
+필터 인터페이스를 구현할때 필수적인 매서드
+1. init(FilterConfig filterConfig) => 필터 초기화할때 호출되는 매서드
+2. doFilter(ServletRequest request, ServletResponse resp, FilterChain chain) => chain을 이용해 다음 필터로 처리결과 전달
+3. destroy() => 필터가 웹 컨테이너에서 삭제될 때 호출.
+
+필터의 응용
+필터는 주로
+1. 사용자 인증
+2. 캐싱 필터
+3. 자원 접근에 대한 로깅
+4. 응답 데이터 변환(HTML 변환, 응답 헤더 변환, 데이터 암호화 등등)
+5. 공통 기능 실행

@@ -14,7 +14,7 @@ public class NowServlet extends HttpServlet {
 
     // req와 resp는 JSP의 request와 response에 해당한다.
     // 톰캣이 서블릿 객체를 생성하고 init() 매서드를 호출하여 서블릿 로딩 과정을 거친다.
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         process(req, resp);

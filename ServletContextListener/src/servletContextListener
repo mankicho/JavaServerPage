@@ -1,0 +1,4 @@
+1. ServletContextListener는 웹 어플리케이션이 초기화될때 혹은 종료될 때 어떤 이벤트를 처리하기위해 사용한다.
+이번에 연습한 예제는 커넥션 풀을 생성하는 DBCPInitListener 클래스를 웹 어플리케이션을 초기화 할때 호출하여 연습했다.
+TestController에서 커넥션을 생성해서 성공적으로 생성했으면 test.jsp를 출력하고 커넥션이 null값이면 fail.jsp를 출력한다.
+성공적으로 생성했다는것은 웹 어플리케이션을 초기화 할때 DBCPInitListener 가 성공적으로 호출되었다는 것이다.

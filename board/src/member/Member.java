@@ -1,14 +1,14 @@
 package member;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Member {
     private String id;
     private String password;
     private String name;
-    private java.sql.Date regDate;
+    private java.util.Date regDate;
 
-    public Member(String id, String password, String name, java.sql.Date date) {
+    public Member(String id, String password, String name, java.util.Date date) {
         this.id = id;
         this.password = password;
         this.name = name;

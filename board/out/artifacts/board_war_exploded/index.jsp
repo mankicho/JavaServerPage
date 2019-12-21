@@ -12,6 +12,9 @@
 </head>
 <body>
 초기 화면입니다. <br>
+<form action="login.do" method="post">
+    <input type="submit" value="로그인 하기"/>
+</form>
 <form action="join.do" method="post">
     <input type="submit" value="회원가입 하기"/>
 </form>

@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
         try {
             User user = loginService.login(id, password);
             req.getSession().setAttribute("authUser", user);
-            dispatcher = req.getRequestDispatcher("index.jsp");
+            dispatcher = req.getRequestDispatcher("/view/index.jsp");
             dispatcher.forward(req,resp);
         } catch (LoginFailException e) {
             errors.put("idOrPasswordNotMatch", Boolean.TRUE);

@@ -44,6 +44,13 @@ public class MemberDAO {
         }
     }
 
+    public void update(Connection conn, Member member) throws SQLException{
+        PreparedStatement pstmt = conn.prepareStatement("update board.member set name = ?, password = ? where memberId = ?");
+        pstmt.setString(1,member.getName());
+        pstmt.setString(2,member.getPassword());
+        pstmt.setString(3,member.getId());
+        pstmt.executeUpdate();
+    }
     private Date toDate(Timestamp date) {
         return date == null ? null : new Date(date.getTime());
     }

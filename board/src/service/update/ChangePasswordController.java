@@ -16,8 +16,13 @@ import java.util.Map;
 @WebServlet(urlPatterns = "/changePassword.do")
 public class ChangePasswordController extends HttpServlet {
 
-    private final String FROM_VIEW = "/view/update/changePasswordForm.jsp";
+    private final String FROM_VIEW = "/auth/view/update/changePasswordForm.jsp";
     private ChangePasswordService changePasswordService = new ChangePasswordService();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processChangePassword(req,resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,7 +55,7 @@ public class ChangePasswordController extends HttpServlet {
         try {
             // 비밀번호 바꾸고 성공적으로 비밀번호 변경했다는 뷰를 리턴
             changePasswordService.changePassword(user.getId(), curPassword, newPassword);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/view/update/changePasswordSuccess.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/auth/view/update/changePasswordSuccess.jsp");
             dispatcher.forward(req, resp);
         } catch (InvalidPasswordException e) {
             errors.put("isNotMatchedCurPassword", Boolean.TRUE);

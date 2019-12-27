@@ -19,8 +19,8 @@ public class MemberDAO {
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                member = new Member(rs.getString("memberId"), rs.getString("password"),
-                        rs.getString("name"), toDate(rs.getTimestamp("regdate")));
+                member = new Member(rs.getString("memberId"), rs.getString("name"),
+                        rs.getString("password"), toDate(rs.getTimestamp("regdate")));
             }
             return member;
         } finally {

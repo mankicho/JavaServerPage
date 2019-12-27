@@ -14,6 +14,11 @@ public class LogoutController extends HttpServlet {
     private LogoutService logoutService = new LogoutService();
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processLogout(req,resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processLogout(req, resp);
     }
@@ -21,11 +26,11 @@ public class LogoutController extends HttpServlet {
     private void processLogout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             logoutService.logout(req,resp);
-            resp.sendRedirect("view/logout/logoutSuccess.jsp");
+            resp.sendRedirect("/auth/view/logout/logoutSuccess.jsp");
         }catch (LogoutFailException e){
             // sendRedirect는 request와 resp가 유지되지않고 새로 생성됨.
             // RequestDispatcher는 request가 유지됨.
-            resp.sendRedirect("view/logout/logoutFail.jsp");
+            resp.sendRedirect("/auth/view/logout/logoutFail.jsp");
         }
     }
 }

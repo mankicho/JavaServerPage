@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Member {
     private String id;
-    private String password;
     private String name;
+    private String password;
     private java.util.Date regDate;
 
-    public Member(String id, String password, String name, java.util.Date date) {
+    public Member(String id, String name, String password, java.util.Date date) {
         this.id = id;
-        this.password = password;
         this.name = name;
+        this.password = password;
         this.regDate = date;
     }
 

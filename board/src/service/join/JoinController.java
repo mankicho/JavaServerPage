@@ -19,7 +19,7 @@ import java.util.Map;
 @WebServlet(urlPatterns = "/join.do")
 public class JoinController extends HttpServlet {
 
-    private final String FROM_VIEW = "/view/join/joinForm.jsp";
+    private final String FROM_VIEW = "/auth/view/join/joinForm.jsp";
     private JoinService service = new JoinService();
 
     @Override
@@ -63,7 +63,7 @@ public class JoinController extends HttpServlet {
         try {
             // 에러 없으면 회원가입 쿼리 실행.
             service.join(joinRequest);
-            dispatcher = req.getRequestDispatcher("/view/join/joinSuccess.jsp");
+            dispatcher = req.getRequestDispatcher("/auth/view/join/joinSuccess.jsp");
             dispatcher.forward(req, resp);
         } catch (DuplicateIdException e) {
             // 아이디가 같은게 존재하면 회원가입 뷰 다시 보여줌.

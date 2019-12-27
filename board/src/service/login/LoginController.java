@@ -13,7 +13,7 @@ import java.util.Map;
 @WebServlet(urlPatterns = ("/login.do"))
 public class LoginController extends HttpServlet {
 
-    private final String FROM_VIEW = "/view/login/loginForm.jsp";
+    private final String FROM_VIEW = "/auth/view/login/loginForm.jsp";
     private LoginService loginService = new LoginService();
 
     @Override
@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
         try {
             User user = loginService.login(id, password);
             req.getSession().setAttribute("authUser", user);
-            dispatcher = req.getRequestDispatcher("/view/index.jsp");
+            dispatcher = req.getRequestDispatcher("/auth/view/login/loginSuccess.jsp");
             dispatcher.forward(req,resp);
         } catch (LoginFailException e) {
             errors.put("idOrPasswordNotMatch", Boolean.TRUE);
